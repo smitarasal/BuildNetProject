@@ -1,0 +1,1050 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="QSIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Access_Master">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModulePremission" Type="varchar(max)" Nullable="false" />
+          <Property Name="MapPermissions" Type="varchar(max)" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedAt" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AddressLine1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AddressLine2" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedAt" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="50" />
+          <Property Name="subTitle" Type="varchar" MaxLength="50" />
+          <Property Name="logo" Type="varchar(max)" Nullable="false" />
+          <Property Name="geometryService" Type="varchar" MaxLength="200" />
+          <Property Name="ContactPerson" Type="varchar" MaxLength="100" />
+          <Property Name="ContactPersonPhoneNumber" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ClientServers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ClientId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Environment" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ServerAddress" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DetectionImages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DetectionId" Type="uniqueidentifier" />
+          <Property Name="Images" Type="varchar(max)" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="ModifiedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="100" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Detections">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TID" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Attribute" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedAt" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ShareWidgets">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SharedById" Type="uniqueidentifier" />
+          <Property Name="SharedToId" Type="uniqueidentifier" />
+          <Property Name="Keys" Type="varchar" MaxLength="100" />
+          <Property Name="Value" Type="varchar(max)" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="ModifiedAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AddressLine1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AddressLine2" Type="varchar(max)" Nullable="false" />
+          <Property Name="ContactNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UsergroupId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Country" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EffectiveDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="ExpirationDate" Type="datetime2" Precision="7" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Token" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedAt" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="clientId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="UserData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Keys" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Value" Type="varchar(max)" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ClientId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModulePermissions" Type="varchar(max)" Nullable="false" />
+          <Property Name="MapPermissions" Type="varchar(max)" Nullable="false" />
+          <Property Name="UserType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedAt" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserLogging">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LoginDateTime" Type="datetime" Nullable="false" />
+          <Property Name="LogoutDateTime" Type="datetime" Nullable="false" />
+          <Property Name="IsLoggedIn" Type="bit" Nullable="false" />
+          <Property Name="Token" Type="uniqueidentifier" />
+          <Property Name="Lattitude" Type="varchar" MaxLength="100" />
+          <Property Name="Longitude" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="UserPreferences">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PreferencesJson" Type="varchar(max)" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PreferenceName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UserSettings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LockAccountAttempts" Type="smallint" Nullable="false" />
+          <Property Name="AllowLockAccountLoginTime" Type="smallint" Nullable="false" />
+          <Property Name="PasswordChangeInterval" Type="smallint" Nullable="false" />
+          <Property Name="IdleUserLogOutTime" Type="smallint" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedAt" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WorkOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="WorkOrderName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="AssignedById" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AssignedByName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DetectionUrl" Type="varchar" MaxLength="200" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_ClientId">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="ClientServers" Type="Self.ClientServers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientServers">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Detections_DetectionImage">
+          <End Role="Detections" Type="Self.Detections" Multiplicity="0..1" />
+          <End Role="DetectionImages" Type="Self.DetectionImages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Detections">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DetectionImages">
+              <PropertyRef Name="DetectionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShareWidgets_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="ShareWidgets" Type="Self.ShareWidgets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ShareWidgets">
+              <PropertyRef Name="SharedById" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShareWidgets_User1">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="ShareWidgets" Type="Self.ShareWidgets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ShareWidgets">
+              <PropertyRef Name="SharedToId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Client_Master">
+          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="clientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_User">
+          <End Role="UserGroup" Type="Self.UserGroup" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UsergroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserData_Users">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="UserData" Type="Self.UserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserData">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserGroup_Client_Master">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="UserGroup" Type="Self.UserGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserGroup">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserLoggin_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="UserLogging" Type="Self.UserLogging" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserLogging">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserPref_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="UserPreferences" Type="Self.UserPreferences" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserPreferences">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkOrder_AssignedBy">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="WorkOrder" Type="Self.WorkOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkOrder">
+              <PropertyRef Name="AssignedById" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkOrder_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="WorkOrder" Type="Self.WorkOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkOrder">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QSIModelStoreContainer">
+          <EntitySet Name="Access_Master" EntityType="Self.Access_Master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClientServers" EntityType="Self.ClientServers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DetectionImages" EntityType="Self.DetectionImages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Detections" EntityType="Self.Detections" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShareWidgets" EntityType="Self.ShareWidgets" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserData" EntityType="Self.UserData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserGroup" EntityType="Self.UserGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserLogging" EntityType="Self.UserLogging" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserPreferences" EntityType="Self.UserPreferences" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserSettings" EntityType="Self.UserSettings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkOrder" EntityType="Self.WorkOrder" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ClientId" Association="Self.FK_ClientId">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="ClientServers" EntitySet="ClientServers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Detections_DetectionImage" Association="Self.FK_Detections_DetectionImage">
+            <End Role="Detections" EntitySet="Detections" />
+            <End Role="DetectionImages" EntitySet="DetectionImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShareWidgets_User" Association="Self.FK_ShareWidgets_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="ShareWidgets" EntitySet="ShareWidgets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShareWidgets_User1" Association="Self.FK_ShareWidgets_User1">
+            <End Role="User" EntitySet="User" />
+            <End Role="ShareWidgets" EntitySet="ShareWidgets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Client_Master" Association="Self.FK_User_Client_Master">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_User" Association="Self.FK_User_User">
+            <End Role="UserGroup" EntitySet="UserGroup" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserData_Users" Association="Self.FK_UserData_Users">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserData" EntitySet="UserData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserGroup_Client_Master" Association="Self.FK_UserGroup_Client_Master">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="UserGroup" EntitySet="UserGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserLoggin_User" Association="Self.FK_UserLoggin_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserLogging" EntitySet="UserLogging" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserPref_User" Association="Self.FK_UserPref_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserPreferences" EntitySet="UserPreferences" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkOrder_AssignedBy" Association="Self.FK_WorkOrder_AssignedBy">
+            <End Role="User" EntitySet="User" />
+            <End Role="WorkOrder" EntitySet="WorkOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkOrder_User" Association="Self.FK_WorkOrder_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="WorkOrder" EntitySet="WorkOrder" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QSIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="QSIEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Access_Master" EntityType="QSIModel.Access_Master" />
+          <EntitySet Name="Clients" EntityType="QSIModel.Client" />
+          <EntitySet Name="ClientServers" EntityType="QSIModel.ClientServer" />
+          <EntitySet Name="DetectionImages" EntityType="QSIModel.DetectionImage" />
+          <EntitySet Name="Detections" EntityType="QSIModel.Detection" />
+          <EntitySet Name="ShareWidgets" EntityType="QSIModel.ShareWidget" />
+          <EntitySet Name="Users" EntityType="QSIModel.User" />
+          <EntitySet Name="UserDatas" EntityType="QSIModel.UserData" />
+          <EntitySet Name="UserGroups" EntityType="QSIModel.UserGroup" />
+          <EntitySet Name="UserLoggings" EntityType="QSIModel.UserLogging" />
+          <EntitySet Name="UserPreferences" EntityType="QSIModel.UserPreference" />
+          <EntitySet Name="UserSettings" EntityType="QSIModel.UserSetting" />
+          <EntitySet Name="WorkOrders" EntityType="QSIModel.WorkOrder" />
+          <AssociationSet Name="FK_ClientId" Association="QSIModel.FK_ClientId">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="ClientServer" EntitySet="ClientServers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Client_Master" Association="QSIModel.FK_User_Client_Master">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserGroup_Client_Master" Association="QSIModel.FK_UserGroup_Client_Master">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="UserGroup" EntitySet="UserGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Detections_DetectionImage" Association="QSIModel.FK_Detections_DetectionImage">
+            <End Role="Detection" EntitySet="Detections" />
+            <End Role="DetectionImage" EntitySet="DetectionImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShareWidgets_User" Association="QSIModel.FK_ShareWidgets_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="ShareWidget" EntitySet="ShareWidgets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShareWidgets_User1" Association="QSIModel.FK_ShareWidgets_User1">
+            <End Role="User" EntitySet="Users" />
+            <End Role="ShareWidget" EntitySet="ShareWidgets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_User" Association="QSIModel.FK_User_User">
+            <End Role="UserGroup" EntitySet="UserGroups" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserData_Users" Association="QSIModel.FK_UserData_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserData" EntitySet="UserDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserLoggin_User" Association="QSIModel.FK_UserLoggin_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserLogging" EntitySet="UserLoggings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserPref_User" Association="QSIModel.FK_UserPref_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserPreference" EntitySet="UserPreferences" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkOrder_AssignedBy" Association="QSIModel.FK_WorkOrder_AssignedBy">
+            <End Role="User" EntitySet="Users" />
+            <End Role="WorkOrder" EntitySet="WorkOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkOrder_User" Association="QSIModel.FK_WorkOrder_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="WorkOrder" EntitySet="WorkOrders" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Access_Master">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="ModulePremission" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MapPermissions" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AddressLine1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AddressLine2" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="subTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="geometryService" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPerson" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPersonPhoneNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ClientServers" Relationship="QSIModel.FK_ClientId" FromRole="Client" ToRole="ClientServer" />
+          <NavigationProperty Name="Users" Relationship="QSIModel.FK_User_Client_Master" FromRole="Client" ToRole="User" />
+          <NavigationProperty Name="UserGroups" Relationship="QSIModel.FK_UserGroup_Client_Master" FromRole="Client" ToRole="UserGroup" />
+        </EntityType>
+        <EntityType Name="ClientServer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="ClientId" Type="Guid" Nullable="false" />
+          <Property Name="Environment" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ServerAddress" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Client" Relationship="QSIModel.FK_ClientId" FromRole="ClientServer" ToRole="Client" />
+        </EntityType>
+        <EntityType Name="DetectionImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="DetectionId" Type="Guid" />
+          <Property Name="Images" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Detection" Relationship="QSIModel.FK_Detections_DetectionImage" FromRole="DetectionImage" ToRole="Detection" />
+        </EntityType>
+        <EntityType Name="Detection">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="TID" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Attribute" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="DetectionImages" Relationship="QSIModel.FK_Detections_DetectionImage" FromRole="Detection" ToRole="DetectionImage" />
+        </EntityType>
+        <EntityType Name="ShareWidget">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="SharedById" Type="Guid" />
+          <Property Name="SharedToId" Type="Guid" />
+          <Property Name="Keys" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedAt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="User" Relationship="QSIModel.FK_ShareWidgets_User" FromRole="ShareWidget" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="QSIModel.FK_ShareWidgets_User1" FromRole="ShareWidget" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AddressLine1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AddressLine2" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ContactNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UsergroupId" Type="Guid" Nullable="false" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EffectiveDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="ExpirationDate" Type="DateTime" Precision="7" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Token" Type="Guid" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="clientId" Type="Guid" />
+          <NavigationProperty Name="Client" Relationship="QSIModel.FK_User_Client_Master" FromRole="User" ToRole="Client" />
+          <NavigationProperty Name="ShareWidgets" Relationship="QSIModel.FK_ShareWidgets_User" FromRole="User" ToRole="ShareWidget" />
+          <NavigationProperty Name="ShareWidgets1" Relationship="QSIModel.FK_ShareWidgets_User1" FromRole="User" ToRole="ShareWidget" />
+          <NavigationProperty Name="UserGroup" Relationship="QSIModel.FK_User_User" FromRole="User" ToRole="UserGroup" />
+          <NavigationProperty Name="UserDatas" Relationship="QSIModel.FK_UserData_Users" FromRole="User" ToRole="UserData" />
+          <NavigationProperty Name="UserLoggings" Relationship="QSIModel.FK_UserLoggin_User" FromRole="User" ToRole="UserLogging" />
+          <NavigationProperty Name="UserPreferences" Relationship="QSIModel.FK_UserPref_User" FromRole="User" ToRole="UserPreference" />
+          <NavigationProperty Name="WorkOrders" Relationship="QSIModel.FK_WorkOrder_AssignedBy" FromRole="User" ToRole="WorkOrder" />
+          <NavigationProperty Name="WorkOrders1" Relationship="QSIModel.FK_WorkOrder_User" FromRole="User" ToRole="WorkOrder" />
+        </EntityType>
+        <EntityType Name="UserData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="Keys" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="User" Relationship="QSIModel.FK_UserData_Users" FromRole="UserData" ToRole="User" />
+        </EntityType>
+        <EntityType Name="UserGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClientId" Type="Guid" Nullable="false" />
+          <Property Name="ModulePermissions" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MapPermissions" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UserType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Client" Relationship="QSIModel.FK_UserGroup_Client_Master" FromRole="UserGroup" ToRole="Client" />
+          <NavigationProperty Name="Users" Relationship="QSIModel.FK_User_User" FromRole="UserGroup" ToRole="User" />
+        </EntityType>
+        <EntityType Name="UserLogging">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="LoginDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LogoutDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsLoggedIn" Type="Boolean" Nullable="false" />
+          <Property Name="Token" Type="Guid" />
+          <Property Name="Lattitude" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Longitude" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="QSIModel.FK_UserLoggin_User" FromRole="UserLogging" ToRole="User" />
+        </EntityType>
+        <EntityType Name="UserPreference">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="PreferencesJson" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PreferenceName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="QSIModel.FK_UserPref_User" FromRole="UserPreference" ToRole="User" />
+        </EntityType>
+        <EntityType Name="UserSetting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="LockAccountAttempts" Type="Int16" Nullable="false" />
+          <Property Name="AllowLockAccountLoginTime" Type="Int16" Nullable="false" />
+          <Property Name="PasswordChangeInterval" Type="Int16" Nullable="false" />
+          <Property Name="IdleUserLogOutTime" Type="Int16" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="WorkOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="WorkOrderName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AssignedById" Type="Guid" Nullable="false" />
+          <Property Name="AssignedByName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DetectionUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="QSIModel.FK_WorkOrder_AssignedBy" FromRole="WorkOrder" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="QSIModel.FK_WorkOrder_User" FromRole="WorkOrder" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_ClientId">
+          <End Type="QSIModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="QSIModel.ClientServer" Role="ClientServer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientServer">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Client_Master">
+          <End Type="QSIModel.Client" Role="Client" Multiplicity="0..1" />
+          <End Type="QSIModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="clientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserGroup_Client_Master">
+          <End Type="QSIModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="QSIModel.UserGroup" Role="UserGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserGroup">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Detections_DetectionImage">
+          <End Type="QSIModel.Detection" Role="Detection" Multiplicity="0..1" />
+          <End Type="QSIModel.DetectionImage" Role="DetectionImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Detection">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DetectionImage">
+              <PropertyRef Name="DetectionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShareWidgets_User">
+          <End Type="QSIModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="QSIModel.ShareWidget" Role="ShareWidget" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ShareWidget">
+              <PropertyRef Name="SharedById" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShareWidgets_User1">
+          <End Type="QSIModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="QSIModel.ShareWidget" Role="ShareWidget" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ShareWidget">
+              <PropertyRef Name="SharedToId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_User">
+          <End Type="QSIModel.UserGroup" Role="UserGroup" Multiplicity="1" />
+          <End Type="QSIModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UsergroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserData_Users">
+          <End Type="QSIModel.User" Role="User" Multiplicity="1" />
+          <End Type="QSIModel.UserData" Role="UserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserData">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserLoggin_User">
+          <End Type="QSIModel.User" Role="User" Multiplicity="1" />
+          <End Type="QSIModel.UserLogging" Role="UserLogging" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserLogging">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserPref_User">
+          <End Type="QSIModel.User" Role="User" Multiplicity="1" />
+          <End Type="QSIModel.UserPreference" Role="UserPreference" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserPreference">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkOrder_AssignedBy">
+          <End Type="QSIModel.User" Role="User" Multiplicity="1" />
+          <End Type="QSIModel.WorkOrder" Role="WorkOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkOrder">
+              <PropertyRef Name="AssignedById" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkOrder_User">
+          <End Type="QSIModel.User" Role="User" Multiplicity="1" />
+          <End Type="QSIModel.WorkOrder" Role="WorkOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkOrder">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QSIModelStoreContainer" CdmEntityContainer="QSIEntities">
+          <EntitySetMapping Name="Access_Master">
+            <EntityTypeMapping TypeName="QSIModel.Access_Master">
+              <MappingFragment StoreEntitySet="Access_Master">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedAt" ColumnName="ModifiedAt" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="MapPermissions" ColumnName="MapPermissions" />
+                <ScalarProperty Name="ModulePremission" ColumnName="ModulePremission" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="QSIModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="ContactPersonPhoneNumber" ColumnName="ContactPersonPhoneNumber" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="geometryService" ColumnName="geometryService" />
+                <ScalarProperty Name="logo" ColumnName="logo" />
+                <ScalarProperty Name="subTitle" ColumnName="subTitle" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedAt" ColumnName="ModifiedAt" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClientServers">
+            <EntityTypeMapping TypeName="QSIModel.ClientServer">
+              <MappingFragment StoreEntitySet="ClientServers">
+                <ScalarProperty Name="ServerAddress" ColumnName="ServerAddress" />
+                <ScalarProperty Name="Environment" ColumnName="Environment" />
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DetectionImages">
+            <EntityTypeMapping TypeName="QSIModel.DetectionImage">
+              <MappingFragment StoreEntitySet="DetectionImages">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedAt" ColumnName="ModifiedAt" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="Images" ColumnName="Images" />
+                <ScalarProperty Name="DetectionId" ColumnName="DetectionId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Detections">
+            <EntityTypeMapping TypeName="QSIModel.Detection">
+              <MappingFragment StoreEntitySet="Detections">
+                <ScalarProperty Name="ModifiedAt" ColumnName="ModifiedAt" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Attribute" ColumnName="Attribute" />
+                <ScalarProperty Name="TID" ColumnName="TID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShareWidgets">
+            <EntityTypeMapping TypeName="QSIModel.ShareWidget">
+              <MappingFragment StoreEntitySet="ShareWidgets">
+                <ScalarProperty Name="ModifiedAt" ColumnName="ModifiedAt" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Keys" ColumnName="Keys" />
+                <ScalarProperty Name="SharedToId" ColumnName="SharedToId" />
+                <ScalarProperty Name="SharedById" ColumnName="SharedById" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="QSIModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="clientId" ColumnName="clientId" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedAt" ColumnName="ModifiedAt" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+                <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="UsergroupId" ColumnName="UsergroupId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserDatas">
+            <EntityTypeMapping TypeName="QSIModel.UserData">
+              <MappingFragment StoreEntitySet="UserData">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Keys" ColumnName="Keys" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserGroups">
+            <EntityTypeMapping TypeName="QSIModel.UserGroup">
+              <MappingFragment StoreEntitySet="UserGroup">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedAt" ColumnName="ModifiedAt" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="MapPermissions" ColumnName="MapPermissions" />
+                <ScalarProperty Name="ModulePermissions" ColumnName="ModulePermissions" />
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserLoggings">
+            <EntityTypeMapping TypeName="QSIModel.UserLogging">
+              <MappingFragment StoreEntitySet="UserLogging">
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Lattitude" ColumnName="Lattitude" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="IsLoggedIn" ColumnName="IsLoggedIn" />
+                <ScalarProperty Name="LogoutDateTime" ColumnName="LogoutDateTime" />
+                <ScalarProperty Name="LoginDateTime" ColumnName="LoginDateTime" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserPreferences">
+            <EntityTypeMapping TypeName="QSIModel.UserPreference">
+              <MappingFragment StoreEntitySet="UserPreferences">
+                <ScalarProperty Name="PreferenceName" ColumnName="PreferenceName" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="PreferencesJson" ColumnName="PreferencesJson" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserSettings">
+            <EntityTypeMapping TypeName="QSIModel.UserSetting">
+              <MappingFragment StoreEntitySet="UserSettings">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedAt" ColumnName="ModifiedAt" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="IdleUserLogOutTime" ColumnName="IdleUserLogOutTime" />
+                <ScalarProperty Name="PasswordChangeInterval" ColumnName="PasswordChangeInterval" />
+                <ScalarProperty Name="AllowLockAccountLoginTime" ColumnName="AllowLockAccountLoginTime" />
+                <ScalarProperty Name="LockAccountAttempts" ColumnName="LockAccountAttempts" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkOrders">
+            <EntityTypeMapping TypeName="QSIModel.WorkOrder">
+              <MappingFragment StoreEntitySet="WorkOrder">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="DetectionUrl" ColumnName="DetectionUrl" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="AssignedByName" ColumnName="AssignedByName" />
+                <ScalarProperty Name="AssignedById" ColumnName="AssignedById" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="WorkOrderName" ColumnName="WorkOrderName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

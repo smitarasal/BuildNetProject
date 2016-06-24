@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="QSI.Services.UserPreferencesService" CodeBehind="UserPreferencesService.svc.cs" %>

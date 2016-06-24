@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7ca271ec6a0d491db93bf92244234919" Name="Diagram1">
+        <EntityTypeShape EntityType="QSIModel.Access_Master" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="QSIModel.Client" Width="1.5" PointX="0.75" PointY="11.875" />
+        <EntityTypeShape EntityType="QSIModel.ClientServer" Width="1.5" PointX="3" PointY="11.125" />
+        <EntityTypeShape EntityType="QSIModel.DetectionImage" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="QSIModel.Detection" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="QSIModel.ShareWidget" Width="1.5" PointX="7.5" PointY="18.375" />
+        <EntityTypeShape EntityType="QSIModel.User" Width="1.5" PointX="5.25" PointY="20.5" />
+        <EntityTypeShape EntityType="QSIModel.UserData" Width="1.5" PointX="7.5" PointY="22.25" />
+        <EntityTypeShape EntityType="QSIModel.UserGroup" Width="1.5" PointX="3" PointY="32.125" />
+        <EntityTypeShape EntityType="QSIModel.UserLogging" Width="1.5" PointX="7.5" PointY="29.75" />
+        <EntityTypeShape EntityType="QSIModel.UserPreference" Width="1.5" PointX="7.5" PointY="14.875" />
+        <EntityTypeShape EntityType="QSIModel.UserSetting" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="QSIModel.WorkOrder" Width="1.5" PointX="7.5" PointY="25.75" />
+        <AssociationConnector Association="QSIModel.FK_ClientId" />
+        <AssociationConnector Association="QSIModel.FK_User_Client_Master" />
+        <AssociationConnector Association="QSIModel.FK_UserGroup_Client_Master" />
+        <AssociationConnector Association="QSIModel.FK_Detections_DetectionImage" />
+        <AssociationConnector Association="QSIModel.FK_ShareWidgets_User" />
+        <AssociationConnector Association="QSIModel.FK_ShareWidgets_User1" />
+        <AssociationConnector Association="QSIModel.FK_User_User" />
+        <AssociationConnector Association="QSIModel.FK_UserData_Users" />
+        <AssociationConnector Association="QSIModel.FK_UserLoggin_User" />
+        <AssociationConnector Association="QSIModel.FK_UserPref_User" />
+        <AssociationConnector Association="QSIModel.FK_WorkOrder_AssignedBy" />
+        <AssociationConnector Association="QSIModel.FK_WorkOrder_User" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
